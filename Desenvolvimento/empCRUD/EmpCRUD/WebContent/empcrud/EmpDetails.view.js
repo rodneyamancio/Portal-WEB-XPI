@@ -323,6 +323,7 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                       new sap.ui.core.ListItem({key: "230", text: "Unicard Banco Múltiplo S.A."}),
                                       new sap.ui.core.ListItem({key: "091-4", text: "Unicred Central do Rio Grande do Sul"}),
                                       new sap.ui.core.ListItem({key: "84", text: "Unicred Norte do Paraná"})
+                                      
                                     ],
                                     change: function(oEvent){
                                       sap.ui.getCore().byId("Bkont").setValue(oEvent.oSource.getSelectedKey());
