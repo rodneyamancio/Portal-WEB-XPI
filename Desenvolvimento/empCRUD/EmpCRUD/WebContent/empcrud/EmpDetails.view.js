@@ -142,6 +142,207 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                ]
                              });
 
+                             var oFormDadosBancarios = new sap.ui.layout.form.SimpleForm({
+                                title: "Dados Bancários",
+                                width: "50%",
+                                content: [
+
+                                  new sap.m.Label({text:"Banco"}),
+                                  new sap.m.ComboBox({
+                                    maxLength: 10,
+                                    id: "Bkont",
+                                    value: "{Bkont}",
+                                    items: [
+                                      new sap.ui.core.ListItem({key: "654", text: "Banco A.J.Renner S.A."}),
+                                      new sap.ui.core.ListItem({key: "246", text: "Banco ABC Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "25", text: "Banco Alfa S.A."}),
+                                      new sap.ui.core.ListItem({key: "641", text: "Banco Alvorada S.A."}),
+                                      new sap.ui.core.ListItem({key: "213", text: "Banco Arbi S.A."}),
+                                      new sap.ui.core.ListItem({key: "19", text: "Banco Azteca do Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "29", text: "Banco Banerj S.A."}),
+                                      new sap.ui.core.ListItem({key: "0", text: "Banco Bankpar S.A."}),
+                                      new sap.ui.core.ListItem({key: "740", text: "Banco Barclays S.A."}),
+                                      new sap.ui.core.ListItem({key: "107", text: "Banco BBM S.A."}),
+                                      new sap.ui.core.ListItem({key: "31", text: "Banco Beg S.A."}),
+                                      new sap.ui.core.ListItem({key: "739", text: "Banco BGN S.A."}),
+                                      new sap.ui.core.ListItem({key: "96", text: "Banco BM&F de Serviços de Liquidação e Custódia S.A"}),
+                                      new sap.ui.core.ListItem({key: "318", text: "Banco BMG S.A."}),
+                                      new sap.ui.core.ListItem({key: "752", text: "Banco BNP Paribas Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "248", text: "Banco Boavista Interatlântico S.A."}),
+                                      new sap.ui.core.ListItem({key: "218", text: "Banco Bonsucesso S.A."}),
+                                      new sap.ui.core.ListItem({key: "65", text: "Banco Bracce S.A."}),
+                                      new sap.ui.core.ListItem({key: "36", text: "Banco Bradesco BBI S.A."}),
+                                      new sap.ui.core.ListItem({key: "204", text: "Banco Bradesco Cartões S.A."}),
+                                      new sap.ui.core.ListItem({key: "394", text: "Banco Bradesco Financiamentos S.A."}),
+                                      new sap.ui.core.ListItem({key: "237", text: "Banco Bradesco S.A."}),
+                                      new sap.ui.core.ListItem({key: "225", text: "Banco Brascan S.A."}),
+                                      new sap.ui.core.ListItem({key: "M15", text: "Banco BRJ S.A."}),
+                                      new sap.ui.core.ListItem({key: "208", text: "Banco BTG Pactual S.A."}),
+                                      new sap.ui.core.ListItem({key: "44", text: "Banco BVA S.A."}),
+                                      new sap.ui.core.ListItem({key: "263", text: "Banco Cacique S.A."}),
+                                      new sap.ui.core.ListItem({key: "473", text: "Banco Caixa Geral - Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "412", text: "Banco Capital S.A."}),
+                                      new sap.ui.core.ListItem({key: "40", text: "Banco Cargill S.A."}),
+                                      new sap.ui.core.ListItem({key: "745", text: "Banco Citibank S.A."}),
+                                      new sap.ui.core.ListItem({key: "M08", text: "Banco Citicard S.A."}),
+                                      new sap.ui.core.ListItem({key: "241", text: "Banco Clássico S.A."}),
+                                      new sap.ui.core.ListItem({key: "M19", text: "Banco CNH Capital S.A."}),
+                                      new sap.ui.core.ListItem({key: "215", text: "Banco Comercial e de Investimento Sudameris S.A."}),
+                                      new sap.ui.core.ListItem({key: "756", text: "Banco Cooperativo do Brasil S.A. - BANCOOB"}),
+                                      new sap.ui.core.ListItem({key: "748", text: "Banco Cooperativo Sicredi S.A."}),
+                                      new sap.ui.core.ListItem({key: "75", text: "Banco CR2 S.A."}),
+                                      new sap.ui.core.ListItem({key: "721", text: "Banco Credibel S.A."}),
+                                      new sap.ui.core.ListItem({key: "222", text: "Banco Credit Agricole Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "505", text: "Banco Credit Suisse (Brasil) S.A."}),
+                                      new sap.ui.core.ListItem({key: "229", text: "Banco Cruzeiro do Sul S.A."}),
+                                      new sap.ui.core.ListItem({key: "266", text: "Banco Cédula S.A."}),
+                                      new sap.ui.core.ListItem({key: "3", text: "Banco da Amazônia S.A."}),
+                                      new sap.ui.core.ListItem({key: "083-3", text: "Banco da China Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "M21", text: "Banco Daimlerchrysler S.A."}),
+                                      new sap.ui.core.ListItem({key: "707", text: "Banco Daycoval S.A."}),
+                                      new sap.ui.core.ListItem({key: "300", text: "Banco de La Nacion Argentina"}),
+                                      new sap.ui.core.ListItem({key: "495", text: "Banco de La Provincia de Buenos Aires"}),
+                                      new sap.ui.core.ListItem({key: "494", text: "Banco de La Republica Oriental del Uruguay"}),
+                                      new sap.ui.core.ListItem({key: "M06", text: "Banco de Lage Landen Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "24", text: "Banco de Pernambuco S.A. - BANDEPE"}),
+                                      new sap.ui.core.ListItem({key: "456", text: "Banco de Tokyo-Mitsubishi UFJ Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "214", text: "Banco Dibens S.A."}),
+                                      new sap.ui.core.ListItem({key: "1", text: "Banco do Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "47", text: "Banco do Estado de Sergipe S.A."}),
+                                      new sap.ui.core.ListItem({key: "37", text: "Banco do Estado do Pará S.A."}),
+                                      new sap.ui.core.ListItem({key: "39", text: "Banco do Estado do Piauí S.A. - BEP"}),
+                                      new sap.ui.core.ListItem({key: "41", text: "Banco do Estado do Rio Grande do Sul S.A."}),
+                                      new sap.ui.core.ListItem({key: "4", text: "Banco do Nordeste do Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "265", text: "Banco Fator S.A."}),
+                                      new sap.ui.core.ListItem({key: "M03", text: "Banco Fiat S.A."}),
+                                      new sap.ui.core.ListItem({key: "224", text: "Banco Fibra S.A."}),
+                                      new sap.ui.core.ListItem({key: "626", text: "Banco Ficsa S.A."}),
+                                      new sap.ui.core.ListItem({key: "M18", text: "Banco Ford S.A."}),
+                                      new sap.ui.core.ListItem({key: "233", text: "Banco GE Capital S.A."}),
+                                      new sap.ui.core.ListItem({key: "734", text: "Banco Gerdau S.A."}),
+                                      new sap.ui.core.ListItem({key: "M07", text: "Banco GMAC S.A."}),
+                                      new sap.ui.core.ListItem({key: "612", text: "Banco Guanabara S.A."}),
+                                      new sap.ui.core.ListItem({key: "M22", text: "Banco Honda S.A."}),
+                                      new sap.ui.core.ListItem({key: "63", text: "Banco Ibi S.A. Banco Múltiplo"}),
+                                      new sap.ui.core.ListItem({key: "M11", text: "Banco IBM S.A."}),
+                                      new sap.ui.core.ListItem({key: "604", text: "Banco Industrial do Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "320", text: "Banco Industrial e Comercial S.A."}),
+                                      new sap.ui.core.ListItem({key: "653", text: "Banco Indusval S.A."}),
+                                      new sap.ui.core.ListItem({key: "630", text: "Banco Intercap S.A."}),
+                                      new sap.ui.core.ListItem({key: "077-9", text: "Banco Intermedium S.A."}),
+                                      new sap.ui.core.ListItem({key: "249", text: "Banco Investcred Unibanco S.A."}),
+                                      new sap.ui.core.ListItem({key: "M09", text: "Banco Itaucred Financiamentos S.A."}),
+                                      new sap.ui.core.ListItem({key: "184", text: "Banco Itaú BBA S.A."}),
+                                      new sap.ui.core.ListItem({key: "479", text: "Banco ItaúBank S.A"}),
+                                      new sap.ui.core.ListItem({key: "376", text: "Banco J. P. Morgan S.A."}),
+                                      new sap.ui.core.ListItem({key: "74", text: "Banco J. Safra S.A."}),
+                                      new sap.ui.core.ListItem({key: "217", text: "Banco John Deere S.A."}),
+                                      new sap.ui.core.ListItem({key: "76", text: "Banco KDB S.A."}),
+                                      new sap.ui.core.ListItem({key: "757", text: "Banco KEB do Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "600", text: "Banco Luso Brasileiro S.A."}),
+                                      new sap.ui.core.ListItem({key: "212", text: "Banco Matone S.A."}),
+                                      new sap.ui.core.ListItem({key: "M12", text: "Banco Maxinvest S.A."}),
+                                      new sap.ui.core.ListItem({key: "389", text: "Banco Mercantil do Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "746", text: "Banco Modal S.A."}),
+                                      new sap.ui.core.ListItem({key: "M10", text: "Banco Moneo S.A."}),
+                                      new sap.ui.core.ListItem({key: "738", text: "Banco Morada S.A."}),
+                                      new sap.ui.core.ListItem({key: "66", text: "Banco Morgan Stanley S.A."}),
+                                      new sap.ui.core.ListItem({key: "243", text: "Banco Máxima S.A."}),
+                                      new sap.ui.core.ListItem({key: "45", text: "Banco Opportunity S.A."}),
+                                      new sap.ui.core.ListItem({key: "M17", text: "Banco Ourinvest S.A."}),
+                                      new sap.ui.core.ListItem({key: "623", text: "Banco Panamericano S.A."}),
+                                      new sap.ui.core.ListItem({key: "611", text: "Banco Paulista S.A."}),
+                                      new sap.ui.core.ListItem({key: "613", text: "Banco Pecúnia S.A."}),
+                                      new sap.ui.core.ListItem({key: "094-2", text: "Banco Petra S.A."}),
+                                      new sap.ui.core.ListItem({key: "643", text: "Banco Pine S.A."}),
+                                      new sap.ui.core.ListItem({key: "724", text: "Banco Porto Seguro S.A."}),
+                                      new sap.ui.core.ListItem({key: "735", text: "Banco Pottencial S.A."}),
+                                      new sap.ui.core.ListItem({key: "638", text: "Banco Prosper S.A."}),
+                                      new sap.ui.core.ListItem({key: "M24", text: "Banco PSA Finance Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "747", text: "Banco Rabobank International Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "088-4", text: "Banco Randon S.A."}),
+                                      new sap.ui.core.ListItem({key: "356", text: "Banco Real S.A."}),
+                                      new sap.ui.core.ListItem({key: "633", text: "Banco Rendimento S.A."}),
+                                      new sap.ui.core.ListItem({key: "741", text: "Banco Ribeirão Preto S.A."}),
+                                      new sap.ui.core.ListItem({key: "M16", text: "Banco Rodobens S.A."}),
+                                      new sap.ui.core.ListItem({key: "72", text: "Banco Rural Mais S.A."}),
+                                      new sap.ui.core.ListItem({key: "453", text: "Banco Rural S.A."}),
+                                      new sap.ui.core.ListItem({key: "422", text: "Banco Safra S.A."}),
+                                      new sap.ui.core.ListItem({key: "33", text: "Banco Santander (Brasil) S.A."}),
+                                      new sap.ui.core.ListItem({key: "250", text: "Banco Schahin S.A."}),
+                                      new sap.ui.core.ListItem({key: "743", text: "Banco Semear S.A."}),
+                                      new sap.ui.core.ListItem({key: "749", text: "Banco Simples S.A."}),
+                                      new sap.ui.core.ListItem({key: "366", text: "Banco Société Générale Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "637", text: "Banco Sofisa S.A."}),
+                                      new sap.ui.core.ListItem({key: "12", text: "Banco Standard de Investimentos S.A."}),
+                                      new sap.ui.core.ListItem({key: "464", text: "Banco Sumitomo Mitsui Brasileiro S.A."}),
+                                      new sap.ui.core.ListItem({key: "082-5", text: "Banco Topázio S.A."}),
+                                      new sap.ui.core.ListItem({key: "M20", text: "Banco Toyota do Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "M13", text: "Banco Tricury S.A."}),
+                                      new sap.ui.core.ListItem({key: "634", text: "Banco Triângulo S.A."}),
+                                      new sap.ui.core.ListItem({key: "M14", text: "Banco Volkswagen S.A."}),
+                                      new sap.ui.core.ListItem({key: "M23", text: "Banco Volvo (Brasil) S.A."}),
+                                      new sap.ui.core.ListItem({key: "655", text: "Banco Votorantim S.A."}),
+                                      new sap.ui.core.ListItem({key: "610", text: "Banco VR S.A."}),
+                                      new sap.ui.core.ListItem({key: "370", text: "Banco WestLB do Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "21", text: "BANESTES S.A. Banco do Estado do Espírito Santo"}),
+                                      new sap.ui.core.ListItem({key: "719", text: "Banif-Banco Internacional do Funchal (Brasil)S.A."}),
+                                      new sap.ui.core.ListItem({key: "755", text: "Bank of America Merrill Lynch Banco Múltiplo S.A."}),
+                                      new sap.ui.core.ListItem({key: "744", text: "BankBoston N.A."}),
+                                      new sap.ui.core.ListItem({key: "73", text: "BB Banco Popular do Brasil S.A."}),
+                                      new sap.ui.core.ListItem({key: "78", text: "BES Investimento do Brasil S.A.-Banco de Investimento"}),
+                                      new sap.ui.core.ListItem({key: "69", text: "BPN Brasil Banco Múltiplo S.A."}),
+                                      new sap.ui.core.ListItem({key: "70", text: "BRB - Banco de Brasília S.A."}),
+                                      new sap.ui.core.ListItem({key: "092-2", text: "Brickell S.A. Crédito, financiamento e Investimento"}),
+                                      new sap.ui.core.ListItem({key: "104", text: "Caixa Econômica Federal"}),
+                                      new sap.ui.core.ListItem({key: "477", text: "Citibank N.A."}),
+                                      new sap.ui.core.ListItem({key: "081-7", text: "Concórdia Banco S.A."}),
+                                      new sap.ui.core.ListItem({key: "097-3", text: "Cooperativa Central de Crédito Noroeste Brasileiro Ltda."}),
+                                      new sap.ui.core.ListItem({key: "085-x", text: "Cooperativa Central de Crédito Urbano-CECRED"}),
+                                      new sap.ui.core.ListItem({key: "099-x", text: "Cooperativa Central de Economia e Credito Mutuo das Unicreds"}),
+                                      new sap.ui.core.ListItem({key: "090-2", text: "Cooperativa Central de Economia e Crédito Mutuo das Unicreds"}),
+                                      new sap.ui.core.ListItem({key: "089-2", text: "Cooperativa de Crédito Rural da Região de Mogiana"}),
+                                      new sap.ui.core.ListItem({key: "087-6", text: "Cooperativa Unicred Central Santa Catarina"}),
+                                      new sap.ui.core.ListItem({key: "098-1", text: "Credicorol Cooperativa de Crédito Rural"}),
+                                      new sap.ui.core.ListItem({key: "487", text: "Deutsche Bank S.A. - Banco Alemão"}),
+                                      new sap.ui.core.ListItem({key: "751", text: "Dresdner Bank Brasil S.A. - Banco Múltiplo"}),
+                                      new sap.ui.core.ListItem({key: "64", text: "Goldman Sachs do Brasil Banco Múltiplo S.A."}),
+                                      new sap.ui.core.ListItem({key: "62", text: "Hipercard Banco Múltiplo S.A."}),
+                                      new sap.ui.core.ListItem({key: "399", text: "HSBC Bank Brasil S.A. - Banco Múltiplo"}),
+                                      new sap.ui.core.ListItem({key: "168", text: "HSBC Finance (Brasil) S.A. - Banco Múltiplo"}),
+                                      new sap.ui.core.ListItem({key: "492", text: "ING Bank N.V."}),
+                                      new sap.ui.core.ListItem({key: "652", text: "Itaú Unibanco Holding S.A."}),
+                                      new sap.ui.core.ListItem({key: "341", text: "Itaú Unibanco S.A."}),
+                                      new sap.ui.core.ListItem({key: "79", text: "JBS Banco S.A."}),
+                                      new sap.ui.core.ListItem({key: "488", text: "JPMorgan Chase Bank"}),
+                                      new sap.ui.core.ListItem({key: "14", text: "Natixis Brasil S.A. Banco Múltiplo"}),
+                                      new sap.ui.core.ListItem({key: "753", text: "NBC Bank Brasil S.A. - Banco Múltiplo"}),
+                                      new sap.ui.core.ListItem({key: "086-8", text: "OBOE Crédito Financiamento e Investimento S.A."}),
+                                      new sap.ui.core.ListItem({key: "254", text: "Paraná Banco S.A."}),
+                                      new sap.ui.core.ListItem({key: "409", text: "UNIBANCO - União de Bancos Brasileiros S.A."}),
+                                      new sap.ui.core.ListItem({key: "230", text: "Unicard Banco Múltiplo S.A."}),
+                                      new sap.ui.core.ListItem({key: "091-4", text: "Unicred Central do Rio Grande do Sul"}),
+                                      new sap.ui.core.ListItem({key: "84", text: "Unicred Norte do Paraná"})
+                                    ],
+                                    change: function(oEvent){
+                                      sap.ui.getCore().byId("Bkont").setValue(oEvent.oSource.getSelectedKey());
+                                    }
+                                  }),
+                                  new sap.m.Label({text:"Agência"}),
+                                  new sap.m.Input({
+                                    maxLength: 10,
+                                    id: "Bankl",
+                                    value: "{Bankl}"
+                                  }),
+                                  new sap.m.Label({text:"Conta"}),
+                                  new sap.m.Input({
+                                    maxLength: 10,
+                                    id: "Bankn",
+                                    value: "{Bankn}"
+                                  })
+                                ]
+                              });
+
                             var oFormEndereco = new sap.ui.layout.form.SimpleForm({
                    						title: "Endereço",
                               width: "50%",
@@ -762,25 +963,29 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                               itemPress : [ oController.ItemPress,oController ],
                               columns: [
                                 new sap.m.Column({
-                                width: "1em",
-                                header: new sap.m.Label({
-                                text: "Tipo"  }) }),
+                                  width: "1em",
+                                  header: new sap.m.Label({
+                                  text: "Tipo"  }) }),
                                 new sap.m.Column({
-                                width: "1em",
-                                header: new sap.m.Label({
-                                text: "Nome Completo"  }) }),
+                                  width: "1em",
+                                  header: new sap.m.Label({
+                                  text: "Nome Completo"  }) }),
                                 new sap.m.Column({
-                                width: "1em",
-                                header: new sap.m.Label({
-                                text: "CPF"  }) }),
+                                  width: "1em",
+                                  header: new sap.m.Label({
+                                  text: "Imp.Renda"  }) }),
                                 new sap.m.Column({
-                                width: "1em",
-                                header: new sap.m.Label({
-                                text: "Dt. Nascimento"  }) }),
+                                  width: "1em",
+                                  header: new sap.m.Label({
+                                  text: "CPF"  }) }),
                                 new sap.m.Column({
-                                width: "1em",
-                                header: new sap.m.Label({
-                                text: "Dt. Venc. Cart. Vacinação"  }) })
+                                  width: "1em",
+                                  header: new sap.m.Label({
+                                  text: "Dt. Nascimento"  }) }),
+                                new sap.m.Column({
+                                  width: "1em",
+                                  header: new sap.m.Label({
+                                  text: "Dt. Venc. Cart. Vacinação"  }) })
                               ]
                   });
 
@@ -896,6 +1101,9 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                             text: "{Fcnam}"
                            }),
                            new sap.m.Label({
+                            text: "{Irflg}"
+                           }),
+                           new sap.m.Label({
                             text: "{Icnum}"
                            }),
                            new sap.m.Label({
@@ -933,6 +1141,7 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                   //oPage.addContent(oFormHead);
 
                   oPage.addContent(oFormDadosPessoais);
+                  oPage.addContent(oFormDadosBancarios);
                   oPage.addContent(oFormEndereco);
                   oPage.addContent(oFormDocumentos);
 

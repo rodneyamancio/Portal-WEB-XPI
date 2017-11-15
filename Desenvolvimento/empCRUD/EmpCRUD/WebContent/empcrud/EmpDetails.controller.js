@@ -192,6 +192,7 @@ sap.ui.controller("empcrud.EmpDetails", {
 															 var sStatus 	= oSelectedItem.getBindingContext().getProperty("Status");
 															 var sPernr  	= oSelectedItem.getBindingContext().getProperty("Pernr");
 															 var sFgbdt  	= oSelectedItem.getBindingContext().getProperty("Fgbdt");
+															 var sIrflg  	= oSelectedItem.getBindingContext().getProperty("Irflg");
 
 															 sap.ui.getCore().byId("Type").setValue(sType);
 															 sap.ui.getCore().byId("Fcnam").setValue(sFcnam);
@@ -203,6 +204,7 @@ sap.ui.controller("empcrud.EmpDetails", {
 															 sap.ui.getCore().byId("StatusDependentes").setValue(sStatus);
 															 sap.ui.getCore().byId("PernrDependentes").setValue(sPernr);
 															 sap.ui.getCore().byId("Fgbdt").setValue(sFgbdt);
+															 sap.ui.getCore().byId("oCB").setSelected(sIrflg);
 
 															 sap.ui.getCore().byId("Type").setEnabled(false);
 
@@ -261,6 +263,11 @@ sap.ui.controller("empcrud.EmpDetails", {
 												oEntry.PasspNr 			= sap.ui.getCore().byId("PasspNr").getValue();
 												oEntry.PasspDtEmis 	= sap.ui.getCore().byId("PasspDtEmis").getValue();
 												oEntry.ForeignSit 	= sap.ui.getCore().byId("ForeignSit").getValue();
+												oEntry.Escol 				= sap.ui.getCore().byId("Escol").getValue();
+												oEntry.Bkont 				= sap.ui.getCore().byId("Bkont").getValue();
+												oEntry.Bankl 				= sap.ui.getCore().byId("Bankl").getValue();
+												oEntry.Bankn 				= sap.ui.getCore().byId("Bankn").getValue();
+
 
 	                      OData.request({
 	                                  requestUri : "http://dsv-xp-sap01.xpcorretora.com.br:50000/sap/opu/odata/sap/ZCWIT_PORTAL_SRV_01/EmployeeSet",
@@ -287,9 +294,9 @@ sap.ui.controller("empcrud.EmpDetails", {
                                     data:oEntry
                         },
                         function(data,request) {
-																								sap.m.MessageToast.show("Dados Salvos com Sucesso");
-                                                //alert("Dados Salvos com Sucesso");
-                                                location.reload(true);
+																		sap.m.MessageToast.show("Dados Salvos com Sucesso");
+                                    //alert("Dados Salvos com Sucesso");
+                                    location.reload(true);
                         },          function(err) {
 																			var errorObj1 = JSON.parse(err.response.body);
 																			alert(errorObj1.error.message.value);
@@ -312,6 +319,7 @@ sap.ui.controller("empcrud.EmpDetails", {
 			                    oEntry.Objps = sap.ui.getCore().byId("Objps").getValue();
 			                    oEntry.Subty = sap.ui.getCore().byId("Subty").getValue();
 			                    oEntry.Fgbdt = sap.ui.getCore().byId("Fgbdt").getValue();
+			                    if ( sap.ui.getCore().byId("oCB").getSelected() == true ){ oEntry.Irflg = "X" };
 													oEntry.Pernr = sap.ui.getCore().byId("PernrDependentes").getValue();
 
 													var dd							= oEntry.Fgbdt.substr(6,2);
