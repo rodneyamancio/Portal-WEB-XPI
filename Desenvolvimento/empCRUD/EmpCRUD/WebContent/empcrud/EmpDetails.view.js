@@ -69,32 +69,32 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                content: [
 
                                  new sap.m.Input({
-                                   maxLength: 20,
+                                   maxLength: 10,
                                    id: "Status",
                                    visible: false,
                                  }),
                                  new sap.m.Input({
-                                   maxLength: 20,
+                                   maxLength: 10,
                                    id: "Usrid",
                                    value: "{Usrid}",
                                    visible: false,
                                  }),
                                  new sap.m.Input({
-                                   maxLength: 20,
+                                   maxLength: 10,
                                    visible: false,
                                    id: "Cname",
                                    value: "{Cname}"
                                  }),
                                  new sap.m.Label({text:"Matrícula"}),
                                  new sap.m.Input({
-                                   maxLength: 20,
+                                   maxLength: 10,
                                    id: "Pernr",
                                    value: "{Pernr}",
                                    enabled: false
                                  }),
                                  new sap.m.Label({text:"Dt. Nascimento"}),
                                  new sap.m.DatePicker({
-                                   maxLength: 20,
+                                   maxLength: 10,
                                    id: "Gbdat",
                                    valueFormat: "yyyyMMdd",
                                    displayFormat: "dd.MM.yyyy",
@@ -103,7 +103,7 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                  }),
                                  new sap.m.Label({text:"Telefone"}),
                                  new sap.m.MaskInput({
-                                   maxLength: 20,
+                                   maxLength: 10,
                                    id: "Num01",
                                    mask: "(99)9999-99999",
                                    width: "100%",
@@ -162,12 +162,43 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                   value: "{Ort01}"
                                 }),
                                 new sap.m.Label({text:"UF"}),
-                                new sap.m.MaskInput({
+                                new sap.m.ComboBox({
                                   maxLength: 2,
                                   id: "State",
-                                  mask: "aa",
                                   width: "100%",
-                                  value: "{State}"
+                                  value: "{State}",
+                                  items: [
+                                    new sap.ui.core.ListItem({key: "AC", text: "AC"}),
+                                    new sap.ui.core.ListItem({key: "AL", text: "AL"}),
+                                    new sap.ui.core.ListItem({key: "AM", text: "AM"}),
+                                    new sap.ui.core.ListItem({key: "AP", text: "AP"}),
+                                    new sap.ui.core.ListItem({key: "BA", text: "BA"}),
+                                    new sap.ui.core.ListItem({key: "CE", text: "CE"}),
+                                    new sap.ui.core.ListItem({key: "DF", text: "DF"}),
+                                    new sap.ui.core.ListItem({key: "ES", text: "ES"}),
+                                    new sap.ui.core.ListItem({key: "GO", text: "GO"}),
+                                    new sap.ui.core.ListItem({key: "MA", text: "MA"}),
+                                    new sap.ui.core.ListItem({key: "MG", text: "MG"}),
+                                    new sap.ui.core.ListItem({key: "MS", text: "MS"}),
+                                    new sap.ui.core.ListItem({key: "MT", text: "MT"}),
+                                    new sap.ui.core.ListItem({key: "PA", text: "PA"}),
+                                    new sap.ui.core.ListItem({key: "PB", text: "PB"}),
+                                    new sap.ui.core.ListItem({key: "PE", text: "PE"}),
+                                    new sap.ui.core.ListItem({key: "PI", text: "PI"}),
+                                    new sap.ui.core.ListItem({key: "PR", text: "PR"}),
+                                    new sap.ui.core.ListItem({key: "RJ", text: "RJ"}),
+                                    new sap.ui.core.ListItem({key: "RN", text: "RN"}),
+                                    new sap.ui.core.ListItem({key: "RO", text: "RO"}),
+                                    new sap.ui.core.ListItem({key: "RR", text: "RR"}),
+                                    new sap.ui.core.ListItem({key: "RS", text: "RS"}),
+                                    new sap.ui.core.ListItem({key: "SC", text: "SC"}),
+                                    new sap.ui.core.ListItem({key: "SE", text: "SE"}),
+                                    new sap.ui.core.ListItem({key: "SP", text: "SP"}),
+                                    new sap.ui.core.ListItem({key: "TO", text: "TO"}),
+                                  ],
+                                  change: function(oEvent){
+                                    sap.ui.getCore().byId("State").setValue(oEvent.oSource.getSelectedKey());
+                                  }
                                 }),
                                 new sap.m.Label({text:"País"}),
                                 new sap.m.Input({
@@ -220,18 +251,50 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                     }),
                                     new sap.m.Label({text:"Dt. Emissão"}),
                                     new sap.m.DatePicker({
-                                      maxLength: 20,
+                                      maxLength: 10,
                                       id: "IdentDtEmis",
                                       valueFormat: "yyyyMMdd",
                                       displayFormat: "dd.MM.yyyy",
                                       value: "{IdentDtEmis}"
                                     }),
                                     new sap.m.Label({text:"UF"}),
-                                    new sap.m.Input({
+                                    new sap.m.ComboBox({
                                       maxLength: 2,
                                       id: "IdentEsEmis",
                                       width: "100%",
-                                      value: "{IdentEsEmis}"
+                                      value: "{IdentEsEmis}",
+                                      items: [
+                                        new sap.ui.core.ListItem({key: "AC", text: "AC"}),
+                                        new sap.ui.core.ListItem({key: "AL", text: "AL"}),
+                                        new sap.ui.core.ListItem({key: "AM", text: "AM"}),
+                                        new sap.ui.core.ListItem({key: "AP", text: "AP"}),
+                                        new sap.ui.core.ListItem({key: "BA", text: "BA"}),
+                                        new sap.ui.core.ListItem({key: "CE", text: "CE"}),
+                                        new sap.ui.core.ListItem({key: "DF", text: "DF"}),
+                                        new sap.ui.core.ListItem({key: "ES", text: "ES"}),
+                                        new sap.ui.core.ListItem({key: "GO", text: "GO"}),
+                                        new sap.ui.core.ListItem({key: "MA", text: "MA"}),
+                                        new sap.ui.core.ListItem({key: "MG", text: "MG"}),
+                                        new sap.ui.core.ListItem({key: "MS", text: "MS"}),
+                                        new sap.ui.core.ListItem({key: "MT", text: "MT"}),
+                                        new sap.ui.core.ListItem({key: "PA", text: "PA"}),
+                                        new sap.ui.core.ListItem({key: "PB", text: "PB"}),
+                                        new sap.ui.core.ListItem({key: "PE", text: "PE"}),
+                                        new sap.ui.core.ListItem({key: "PI", text: "PI"}),
+                                        new sap.ui.core.ListItem({key: "PR", text: "PR"}),
+                                        new sap.ui.core.ListItem({key: "RJ", text: "RJ"}),
+                                        new sap.ui.core.ListItem({key: "RN", text: "RN"}),
+                                        new sap.ui.core.ListItem({key: "RO", text: "RO"}),
+                                        new sap.ui.core.ListItem({key: "RR", text: "RR"}),
+                                        new sap.ui.core.ListItem({key: "RS", text: "RS"}),
+                                        new sap.ui.core.ListItem({key: "SC", text: "SC"}),
+                                        new sap.ui.core.ListItem({key: "SE", text: "SE"}),
+                                        new sap.ui.core.ListItem({key: "SP", text: "SP"}),
+                                        new sap.ui.core.ListItem({key: "TO", text: "TO"}),
+                                      ],
+                                      change: function(oEvent){
+                                        sap.ui.getCore().byId("IdentEsEmis").setValue(oEvent.oSource.getSelectedKey());
+                                      }
                                     })
 
                                   ]
@@ -265,18 +328,50 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                     }),
                                     new sap.m.Label({text:"Dt. Emissão"}),
                                     new sap.m.DatePicker({
-                                      maxLength: 20,
+                                      maxLength: 10,
                                       id: "ElecDtEmis",
                                       valueFormat: "yyyyMMdd",
                                       displayFormat: "dd.MM.yyyy",
                                       value: "{ElecDtEmis}"
                                     }),
                                     new sap.m.Label({text:"UF"}),
-                                    new sap.m.Input({
+                                    new sap.m.ComboBox({
                                       maxLength: 2,
                                       id: "ElecEsEmis",
                                       width: "100%",
-                                      value: "{ElecEsEmis}"
+                                      value: "{ElecEsEmis}",
+                                      items: [
+                                        new sap.ui.core.ListItem({key: "AC", text: "AC"}),
+                                        new sap.ui.core.ListItem({key: "AL", text: "AL"}),
+                                        new sap.ui.core.ListItem({key: "AM", text: "AM"}),
+                                        new sap.ui.core.ListItem({key: "AP", text: "AP"}),
+                                        new sap.ui.core.ListItem({key: "BA", text: "BA"}),
+                                        new sap.ui.core.ListItem({key: "CE", text: "CE"}),
+                                        new sap.ui.core.ListItem({key: "DF", text: "DF"}),
+                                        new sap.ui.core.ListItem({key: "ES", text: "ES"}),
+                                        new sap.ui.core.ListItem({key: "GO", text: "GO"}),
+                                        new sap.ui.core.ListItem({key: "MA", text: "MA"}),
+                                        new sap.ui.core.ListItem({key: "MG", text: "MG"}),
+                                        new sap.ui.core.ListItem({key: "MS", text: "MS"}),
+                                        new sap.ui.core.ListItem({key: "MT", text: "MT"}),
+                                        new sap.ui.core.ListItem({key: "PA", text: "PA"}),
+                                        new sap.ui.core.ListItem({key: "PB", text: "PB"}),
+                                        new sap.ui.core.ListItem({key: "PE", text: "PE"}),
+                                        new sap.ui.core.ListItem({key: "PI", text: "PI"}),
+                                        new sap.ui.core.ListItem({key: "PR", text: "PR"}),
+                                        new sap.ui.core.ListItem({key: "RJ", text: "RJ"}),
+                                        new sap.ui.core.ListItem({key: "RN", text: "RN"}),
+                                        new sap.ui.core.ListItem({key: "RO", text: "RO"}),
+                                        new sap.ui.core.ListItem({key: "RR", text: "RR"}),
+                                        new sap.ui.core.ListItem({key: "RS", text: "RS"}),
+                                        new sap.ui.core.ListItem({key: "SC", text: "SC"}),
+                                        new sap.ui.core.ListItem({key: "SE", text: "SE"}),
+                                        new sap.ui.core.ListItem({key: "SP", text: "SP"}),
+                                        new sap.ui.core.ListItem({key: "TO", text: "TO"}),
+                                      ],
+                                      change: function(oEvent){
+                                        sap.ui.getCore().byId("ElecEsEmis").setValue(oEvent.oSource.getSelectedKey());
+                                      }
                                     })
 
                                   ]
@@ -295,15 +390,30 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                       value: "{DriveNr}"
                                     }),
                                     new sap.m.Label({text:"Categoria"}),
-                                    new sap.m.Input({
-                                      maxLength: 14,
+                                    new sap.m.ComboBox({
+                                      maxLength: 30,
                                       id: "DriveCat",
                                       width: "100%",
-                                      value: "{DriveCat}"
+                                      value: "{DriveCat}",
+                                      items: [
+                                        new sap.ui.core.ListItem({key: " ",	text: "Não informado"}),
+                                        new sap.ui.core.ListItem({key: "A",	text: "Condutor de veículo motorizado de duas ou três rodas"}),
+                                        new sap.ui.core.ListItem({key: "B",	text: "Condutor de veículo motorizado não abrangido por categoria A"}),
+                                        new sap.ui.core.ListItem({key: "C",	text: "Condutor de veículo motorizado usado para transp. de carga"}),
+                                        new sap.ui.core.ListItem({key: "D",	text: "condutor de veículo motorizado usado transp. de passageiros"}),
+                                        new sap.ui.core.ListItem({key: "E",	text: "Condutor de combinação de veículos"}),
+                                        new sap.ui.core.ListItem({key: "AB",	text: "Combinação de categ. A e B"}),
+                                        new sap.ui.core.ListItem({key: "AC",	text: "Combinação de categ. A e C"}),
+                                        new sap.ui.core.ListItem({key: "AD",	text: "Combinação de categ. A e D"}),
+                                        new sap.ui.core.ListItem({key: "AE",	text: "Combinação de categ. A e E"})
+                                      ],
+                                      change: function(oEvent){
+                                        sap.ui.getCore().byId("DriveCat").setValue(oEvent.oSource.getSelectedKey());
+                                      }
                                     }),
                                     new sap.m.Label({text:"Dt. Emissão"}),
                                     new sap.m.DatePicker({
-                                      maxLength: 20,
+                                      maxLength: 10,
                                       id: "DriveDtEmis",
                                       valueFormat: "yyyyMMdd",
                                       displayFormat: "dd.MM.yyyy",
@@ -327,18 +437,35 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                     }),
                                     new sap.m.Label({text:"Dt. Emissão"}),
                                     new sap.m.DatePicker({
-                                      maxLength: 20,
+                                      maxLength: 10,
                                       id: "PasspDtEmis",
                                       valueFormat: "yyyyMMdd",
                                       displayFormat: "dd.MM.yyyy",
                                       value: "{PasspDtEmis}"
                                     }),
                                     new sap.m.Label({text:"Cond.Trab.Estrangeiro"}),
-                                    new sap.m.Input({
+                                    new sap.m.ComboBox({
                                       maxLength: 14,
                                       id: "ForeignSit",
                                       width: "100%",
-                                      value: "{ForeignSit}"
+                                      value: "{ForeignSit}",
+                                      items: [
+                                        new sap.ui.core.ListItem({key: "01",	text: "Visto permanente"}),
+                                        new sap.ui.core.ListItem({key: "02",	text: "	Visto temporário"}),
+                                        new sap.ui.core.ListItem({key: "03",	text: "	Asilado"}),
+                                        new sap.ui.core.ListItem({key: "04",	text: "	Refugiado"}),
+                                        new sap.ui.core.ListItem({key: "05",	text: "	Solicitante de refúgio"}),
+                                        new sap.ui.core.ListItem({key: "06",	text: "	Residente em país fronteiriço ao Brasil"}),
+                                        new sap.ui.core.ListItem({key: "07",	text: "	Deficiente físico e com mais de 51 anos"}),
+                                        new sap.ui.core.ListItem({key: "08",	text: "	Com residência provisória e anistiado, em situação irregular"}),
+                                        new sap.ui.core.ListItem({key: "09",	text: "	Permanência no Brasil em razão de filhos ou cônj.brasileiro"}),
+                                        new sap.ui.core.ListItem({key: "10",	text: "	Beneficiado pelo acordo entre países do Mercosul"}),
+                                        new sap.ui.core.ListItem({key: "11",	text: "	Depend. agente diplom. e/ou consular países conv. recipr."}),
+                                        new sap.ui.core.ListItem({key: "12",	text: "	Beneficiado Tratado de Amizade, Coop. e Consul. com Portugal"})
+                                      ],
+                                      change: function(oEvent){
+                                        sap.ui.getCore().byId("ForeignSit").setValue(oEvent.oSource.getSelectedKey());
+                                      }
                                     })
 
                                   ]
