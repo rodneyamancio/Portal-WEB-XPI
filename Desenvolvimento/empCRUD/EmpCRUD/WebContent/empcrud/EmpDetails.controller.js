@@ -191,6 +191,7 @@ sap.ui.controller("empcrud.EmpDetails", {
 															 var sSubty 	= oSelectedItem.getBindingContext().getProperty("Subty");
 															 var sStatus 	= oSelectedItem.getBindingContext().getProperty("Status");
 															 var sPernr  	= oSelectedItem.getBindingContext().getProperty("Pernr");
+															 var sFgbdt  	= oSelectedItem.getBindingContext().getProperty("Fgbdt");
 
 															 sap.ui.getCore().byId("Type").setValue(sType);
 															 sap.ui.getCore().byId("Fcnam").setValue(sFcnam);
@@ -201,6 +202,7 @@ sap.ui.controller("empcrud.EmpDetails", {
 															 sap.ui.getCore().byId("Subty").setValue(sSubty);
 															 sap.ui.getCore().byId("StatusDependentes").setValue(sStatus);
 															 sap.ui.getCore().byId("PernrDependentes").setValue(sPernr);
+															 sap.ui.getCore().byId("Fgbdt").setValue(sFgbdt);
 
 															 sap.ui.getCore().byId("Type").setEnabled(false);
 
@@ -301,7 +303,7 @@ sap.ui.controller("empcrud.EmpDetails", {
 
 							UpdateDependentes: function() {
 
-			                    var oEntry = {};
+			                    var oEntry = { };
 													oEntry.Usrid = sap.ui.getCore().byId("UsridDependentes").getValue();
 			                    oEntry.Type  = sap.ui.getCore().byId("Type").getValue();
 			                    oEntry.Fcnam = sap.ui.getCore().byId("Fcnam").getValue();
@@ -309,47 +311,78 @@ sap.ui.controller("empcrud.EmpDetails", {
 			                    oEntry.Dtcvc = sap.ui.getCore().byId("Dtcvc").getValue();
 			                    oEntry.Objps = sap.ui.getCore().byId("Objps").getValue();
 			                    oEntry.Subty = sap.ui.getCore().byId("Subty").getValue();
+			                    oEntry.Fgbdt = sap.ui.getCore().byId("Fgbdt").getValue();
 													oEntry.Pernr = sap.ui.getCore().byId("PernrDependentes").getValue();
 
+													var dd							= oEntry.Fgbdt.substr(6,2);
+													var mm							= oEntry.Fgbdt.substr(4,2);
+													var yyyy						= oEntry.Fgbdt.substr(0,4);
+												  var birthday 				= new Date(yyyy + "-" + mm + "-" + dd );
+												  var ageDifMs 				= Date.now() - birthday.getTime();
+												  var ageDate 				= new Date(ageDifMs); // miliseconds from epoch
+													var vIdade 					=  Math.abs(ageDate.getFullYear() - 1970);
+													var vErro						= "";
 
-//DependentesSet(Usrid='T0374',Objps='',Subty='11')
-			                    OData.request({
-			                                requestUri : "http://dsv-xp-sap01.xpcorretora.com.br:50000/sap/opu/odata/sap/ZCWIT_PORTAL_SRV_01/DependentesSet",
-			                                method : "GET",
-			                                headers : {
-			                                                        "X-Requested-With" : "XMLHttpRequest",
-			                                                        "Content-Type" : "application/atom+xml",
-			                                                        "DataServiceVersion" : "2.0",
-			                                                        "X-CSRF-Token" : "Fetch"
-			                                                        }
-			                                            },
-			                                            function(data, response) {
-			                                                        header_xcsrf_token = response.headers['x-csrf-token'];
-			                                                        var oHeaders = {
-			                                                                    "x-csrf-token" : header_xcsrf_token,
-			                                                                    'Accept' : 'application/json',
-			                                            };
+													if ( sap.ui.getCore().byId("oCB").getSelected() == true ){
 
-			                   OData.request({
-			                               requestUri : "http://dsv-xp-sap01.xpcorretora.com.br:50000/sap/opu/odata/sap/ZCWIT_PORTAL_SRV_01/DependentesSet(Usrid='"+oEntry.Usrid+"',Objps='"+oEntry.Objps+"',Subty='"+oEntry.Subty+"')",
+														if ( oEntry.Fgbdt == "" ){
 
-			                               method : "PUT",
-			                               headers : oHeaders,
-			                               data:oEntry
-			                   },
-			                   function(data,request) {
-			                                           //alert("Dados Salvos com Sucesso");
-																								 sap.m.MessageToast.show("Dados Salvos com Sucesso");
-			                                           location.reload(true);
-			                   },          function(err) {
-																			 var errorObj1 = JSON.parse(err.response.body);
-																			 alert(errorObj1.error.message.value);
-			                               });
-			                   }, function(err) {
-			                                           var request = err.request;
-			                                           var response = err.response;
-			                                           alert("Error in Get -- Request " + request + " Response " + response);
-			                               });
+															alert("Data de Nascimento não está preenchida");
+															vErro = "X";
+
+														}else{
+
+															if ( vIdade >= 6 && oEntry.Icnum == "" ){
+
+																alert("CPF não está preenchido");
+																vErro = "X";
+
+															}
+
+														}
+
+													};
+
+
+													if ( vErro == "" ){
+					                    OData.request({
+					                                requestUri : "http://dsv-xp-sap01.xpcorretora.com.br:50000/sap/opu/odata/sap/ZCWIT_PORTAL_SRV_01/DependentesSet",
+					                                method : "GET",
+					                                headers : {
+					                                                        "X-Requested-With" : "XMLHttpRequest",
+					                                                        "Content-Type" : "application/atom+xml",
+					                                                        "DataServiceVersion" : "2.0",
+					                                                        "X-CSRF-Token" : "Fetch"
+					                                                        }
+					                                            },
+					                                            function(data, response) {
+					                                                        header_xcsrf_token = response.headers['x-csrf-token'];
+					                                                        var oHeaders = {
+					                                                                    "x-csrf-token" : header_xcsrf_token,
+					                                                                    'Accept' : 'application/json',
+					                                            };
+
+					                   OData.request({
+					                               requestUri : "http://dsv-xp-sap01.xpcorretora.com.br:50000/sap/opu/odata/sap/ZCWIT_PORTAL_SRV_01/DependentesSet(Usrid='"+oEntry.Usrid+"',Objps='"+oEntry.Objps+"',Subty='"+oEntry.Subty+"')",
+
+					                               method : "PUT",
+					                               headers : oHeaders,
+					                               data:oEntry
+					                   },
+					                   function(data,request) {
+					                                           //alert("Dados Salvos com Sucesso");
+																										 sap.m.MessageToast.show("Dados Salvos com Sucesso");
+					                                           location.reload(true);
+					                   },          function(err) {
+																					 var errorObj1 = JSON.parse(err.response.body);
+																					 alert(errorObj1.error.message.value);
+					                               });
+					                   }, function(err) {
+					                                           var request = err.request;
+					                                           var response = err.response;
+					                                           alert("Error in Get -- Request " + request + " Response " + response);
+					                               });
+													}
 			                               },
 
 	             NewEntry: function() {

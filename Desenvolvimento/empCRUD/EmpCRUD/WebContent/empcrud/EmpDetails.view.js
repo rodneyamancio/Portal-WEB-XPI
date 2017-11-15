@@ -108,6 +108,35 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                    mask: "(99)9999-99999",
                                    width: "100%",
                                    value: "{Num01}"
+                                 }),
+                                 new sap.m.Label({text:"Escolaridade"}),
+                                 new sap.m.ComboBox({
+                                   maxLength: 10,
+                                   id: "Escol",
+                                   width: "100%",
+                                   value: "{Escol}",
+                                   items: [
+                                    new sap.ui.core.ListItem({key: "1", text: "Analfabeto"}),
+                                    new sap.ui.core.ListItem({key: "10", text: "Pós grad.incompleto"}),
+                                    new sap.ui.core.ListItem({key: "11", text: "Pós grad.completo"}),
+                                    new sap.ui.core.ListItem({key: "12", text: "Mestrado incompleto"}),
+                                    new sap.ui.core.ListItem({key: "13", text: "Mestrado completo"}),
+                                    new sap.ui.core.ListItem({key: "14", text: "Doutorado incompleto"}),
+                                    new sap.ui.core.ListItem({key: "15", text: "Doutorado completo"}),
+                                    new sap.ui.core.ListItem({key: "16", text: "Pós dout.incompleto"}),
+                                    new sap.ui.core.ListItem({key: "17", text: "Pós dout completo"}),
+                                    new sap.ui.core.ListItem({key: "2", text: "Primário incompleto"}),
+                                    new sap.ui.core.ListItem({key: "3", text: "Primário completo"}),
+                                    new sap.ui.core.ListItem({key: "4", text: "Ginasial incompleto"}),
+                                    new sap.ui.core.ListItem({key: "5", text: "Ginasial completo"}),
+                                    new sap.ui.core.ListItem({key: "6", text: "Colegial incompleto"}),
+                                    new sap.ui.core.ListItem({key: "7", text: "Colegial completo"}),
+                                    new sap.ui.core.ListItem({key: "8", text: "Superior incompleto"}),
+                                    new sap.ui.core.ListItem({key: "9", text: "Superior completo"})
+                                   ],
+                                   change: function(oEvent){
+                                     sap.ui.getCore().byId("Escol").setValue(oEvent.oSource.getSelectedKey());
+                                   }
                                  })
 
                                ]
@@ -396,12 +425,12 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                       width: "100%",
                                       value: "{DriveCat}",
                                       items: [
-                                        new sap.ui.core.ListItem({key: " ",	text: "Não informado"}),
-                                        new sap.ui.core.ListItem({key: "A",	text: "Condutor de veículo motorizado de duas ou três rodas"}),
-                                        new sap.ui.core.ListItem({key: "B",	text: "Condutor de veículo motorizado não abrangido por categoria A"}),
-                                        new sap.ui.core.ListItem({key: "C",	text: "Condutor de veículo motorizado usado para transp. de carga"}),
-                                        new sap.ui.core.ListItem({key: "D",	text: "condutor de veículo motorizado usado transp. de passageiros"}),
-                                        new sap.ui.core.ListItem({key: "E",	text: "Condutor de combinação de veículos"}),
+                                        new sap.ui.core.ListItem({key: " ",	  text: "Não informado"}),
+                                        new sap.ui.core.ListItem({key: "A",	  text: "Condutor de veículo motorizado de duas ou três rodas"}),
+                                        new sap.ui.core.ListItem({key: "B",	  text: "Condutor de veículo motorizado não abrangido por categoria A"}),
+                                        new sap.ui.core.ListItem({key: "C",	  text: "Condutor de veículo motorizado usado para transp. de carga"}),
+                                        new sap.ui.core.ListItem({key: "D",	  text: "condutor de veículo motorizado usado transp. de passageiros"}),
+                                        new sap.ui.core.ListItem({key: "E",	  text: "Condutor de combinação de veículos"}),
                                         new sap.ui.core.ListItem({key: "AB",	text: "Combinação de categ. A e B"}),
                                         new sap.ui.core.ListItem({key: "AC",	text: "Combinação de categ. A e C"}),
                                         new sap.ui.core.ListItem({key: "AD",	text: "Combinação de categ. A e D"}),
@@ -511,7 +540,7 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                 checked : true,
                                 width: "100%",
                                 id: "oCB",
-                                select : function() {if(oCB.getChecked()){alert('YES')}else{alert('NO')};}
+                                select : function(oEvent) {if(oEvent.getParameter('selected') == true) {  };}
                                }),
 
                                new sap.m.Label({text:"Nome", width: "100%"}),
@@ -525,6 +554,13 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                  id: "Icnum",
                                  mask: "999.999.999-99",
                                  width: "100%"
+                               }),
+                               new sap.m.Label({text:"Dt. Nascimento"}),
+                               new sap.m.DatePicker({
+                                 maxLength: 20,
+                                 id: "Fgbdt",
+                                 valueFormat: "yyyyMMdd",
+                                 displayFormat: "dd.MM.yyyy"
                                }),
                                new sap.m.Label({text:"Dt. Venc. Cart. Vacinação"}),
                                new sap.m.DatePicker({
@@ -740,6 +776,10 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                 new sap.m.Column({
                                 width: "1em",
                                 header: new sap.m.Label({
+                                text: "Dt. Nascimento"  }) }),
+                                new sap.m.Column({
+                                width: "1em",
+                                header: new sap.m.Label({
                                 text: "Dt. Venc. Cart. Vacinação"  }) })
                               ]
                   });
@@ -857,6 +897,9 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                            }),
                            new sap.m.Label({
                             text: "{Icnum}"
+                           }),
+                           new sap.m.Label({
+                            text: "{Fgbdt}"
                            }),
                            new sap.m.Label({
                             text: "{Dtcvc}"
