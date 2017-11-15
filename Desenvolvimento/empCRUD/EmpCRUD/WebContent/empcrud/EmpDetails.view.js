@@ -51,234 +51,301 @@ sap.ui.jsview("empcrud.EmpDetails", {
                              });
 //Dialog box / pop-up window for Add/Modify Employee Data
 
-                 var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
-                             title:"Dados Pessoais",
-                             modal: true,
-                             contentWidth:"1em",
+var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
+            title:"Dados Pessoais",
+            modal: true,
+            contentWidth:"1em",
 
-                             content:[
-                               new sap.m.Input({
-                                 maxLength: 20,
-                                 id: "Status"
-                               }),
-                               new sap.m.Input({
-                                 maxLength: 20,
-                                 id: "Usrid"
-                               }),
-                               new sap.m.Input({
-                                 maxLength: 20,
-                                 id: "Cname"
-                               }),
-                               new sap.m.Label({text:"Matrícula"}),
-                               new sap.m.Input({
-                                 maxLength: 20,
-                                 id: "Pernr"
-                               }),
-                               new sap.m.Label({text:"Dt. Nascimento"}),
-                               new sap.m.DatePicker({
-                                 maxLength: 20,
-                                 id: "Gbdat",
-                                 valueFormat: "yyyyMMdd",
-                                 displayFormat: "dd.MM.yyyy"
-                               }),
-                               new sap.m.Label({text:"Telefone"}),
-                               new sap.m.MaskInput({
-                                 maxLength: 20,
-                                 id: "Num01",
-                                 mask: "(99)9999-99999",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"CPF"}),
-                               new sap.m.MaskInput({
-                                 maxLength: 14,
-                                 id: "CpfNr",
-                                 mask: "999.999.999-99",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Nº RG"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "IdentNr",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Org.Emissor"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "IdentOrg",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Dt. Emissão"}),
-                               new sap.m.DatePicker({
-                                 maxLength: 20,
-                                 id: "IdentDtEmis",
-                                 valueFormat: "yyyyMMdd",
-                                 displayFormat: "dd.MM.yyyy"
-                               }),
-                               new sap.m.Label({text:"UF"}),
-                               new sap.m.Input({
-                                 maxLength: 2,
-                                 id: "IdentEsEmis",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Nº Título Eleitor"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "ElecNr",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Zona Eleitoral"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "ElecZone",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Seção Eleitoral"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "ElecSect",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Dt. Emissão"}),
-                               new sap.m.DatePicker({
-                                 maxLength: 20,
-                                 id: "ElecDtEmis",
-                                 valueFormat: "yyyyMMdd",
-                                 displayFormat: "dd.MM.yyyy"
-                               }),
-                               new sap.m.Label({text:"UF"}),
-                               new sap.m.Input({
-                                 maxLength: 2,
-                                 id: "ElecEsEmis",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Nº CNH"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "DriveNr",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Categoria"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "DriveCat",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Dt. Emissão"}),
-                               new sap.m.DatePicker({
-                                 maxLength: 20,
-                                 id: "DriveDtEmis",
-                                 valueFormat: "yyyyMMdd",
-                                 displayFormat: "dd.MM.yyyy"
-                               }),
-                               new sap.m.Label({text:"Nº Passaporte"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "PasspNr",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"Dt. Emissão"}),
-                               new sap.m.DatePicker({
-                                 maxLength: 20,
-                                 id: "PasspDtEmis",
-                                 valueFormat: "yyyyMMdd",
-                                 displayFormat: "dd.MM.yyyy"
-                               }),
-                               new sap.m.Label({text:"Cond.Trab.Estrangeiro"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "ForeignSit",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"CEP", width: "100%"}),
-                               new sap.m.MaskInput({
-                                 maxLength: 9,
-                                 id: "Pstlz",
-                                 mask: "99999-999",
-                                 width: "50%"
-                               }),
-                              new sap.m.Button("buscaCEP", {
-                                  text: "Buscar CEP",
-                                  tap: [ oController.buscaCEP, oController ],
-                                  width: "50%",
-                                  type: "Accept",
-                                  icon: "sap-icon://sys-find"
-                              }),
-                               new sap.m.Label({text:"Rua"}),
-                               new sap.m.Input({
-                                 maxLength: 30,
-                                 id: "Stras"
-                               }),
-                               new sap.m.Label({text:"Número"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "Hsnmr"
-                               }),
-                               new sap.m.Label({text:"Complemento"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "Posta"
-                               }),
-                               new sap.m.Label({text:"Bairro"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "Ort02"
-                               }),
-                               new sap.m.Label({text:"Cidade"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "Ort01"
-                               }),
-                               new sap.m.Label({text:"UF"}),
-                               new sap.m.MaskInput({
-                                 maxLength: 2,
-                                 id: "State",
-                                 mask: "aa",
-                                 width: "100%"
-                               }),
-                               new sap.m.Label({text:"País"}),
-                               new sap.m.Input({
-                                 maxLength: 14,
-                                 id: "Land1"
-                               }),
-                               oBtnUpdDadosPessoais, oBtnCanDadosPessoais
-                             ]
+            content:[
+
+
+              oBtnUpdDadosPessoais, oBtnCanDadosPessoais
+            ]
+          });
+
+                            var oFormDadosPessoais = new sap.ui.layout.form.SimpleForm({
+                               title: "Dados Pessoais",
+                               width: "50%",
+                               content: [
+
+                                 new sap.m.Input({
+                                   maxLength: 20,
+                                   id: "Status",
+                                   visible: false,
+                                 }),
+                                 new sap.m.Input({
+                                   maxLength: 20,
+                                   id: "Usrid",
+                                   value: "{Usrid}",
+                                   visible: false,
+                                 }),
+                                 new sap.m.Input({
+                                   maxLength: 20,
+                                   visible: false,
+                                   id: "Cname",
+                                   value: "{Cname}"
+                                 }),
+                                 new sap.m.Label({text:"Matrícula"}),
+                                 new sap.m.Input({
+                                   maxLength: 20,
+                                   id: "Pernr",
+                                   value: "{Pernr}",
+                                   enabled: false
+                                 }),
+                                 new sap.m.Label({text:"Dt. Nascimento"}),
+                                 new sap.m.DatePicker({
+                                   maxLength: 20,
+                                   id: "Gbdat",
+                                   valueFormat: "yyyyMMdd",
+                                   displayFormat: "dd.MM.yyyy",
+                                   value: "{Gbdat}",
+                                   enabled: false
+                                 }),
+                                 new sap.m.Label({text:"Telefone"}),
+                                 new sap.m.MaskInput({
+                                   maxLength: 20,
+                                   id: "Num01",
+                                   mask: "(99)9999-99999",
+                                   width: "100%",
+                                   value: "{Num01}"
+                                 })
+
+                               ]
                              });
 
-
-                             var oFormDadosPessoais = new sap.ui.layout.form.SimpleForm({
-                   						title: "Dados Pessoais",
+                            var oFormEndereco = new sap.ui.layout.form.SimpleForm({
+                   						title: "Endereço",
+                              width: "50%",
                    						content: [
-                   							new sap.m.Label({text: "Nome"}),
-                   							new sap.m.Text({text: "{Cname}"}),
-                   							new sap.m.Label({text: "Matrícula"}),
-                   							new sap.m.Text({text: "{Pernr}", id:"txtPernr"}),
-                   							new sap.m.Label({text: "Dt. Nascimento"}),
-                   							new sap.m.Text({text: "{Gbdat}"}),
-                   							new sap.m.Label({text: "Telefone"}),
-                   							new sap.m.Text({text: "{Num01}"}),
-                                 new sap.m.Label({text: "CPF"}),
-                   							new sap.m.Text({text: "{CpfNr}"}),
-                                 new sap.m.Label({text: "Rua"}),
-                   							new sap.m.Text({text: "{Stras}"}),
-                                 new sap.m.Label({text: "Número"}),
-                   							new sap.m.Text({text: "{Hsnmr}"}),
-                                 new sap.m.Label({text: "Complemento"}),
-                   							new sap.m.Text({text: "{Posta}"}),
-                                 new sap.m.Label({text: "Bairro"}),
-                   							new sap.m.Text({text: "{Ort02}"}),
-                                 new sap.m.Label({text: "CEP"}),
-                   							new sap.m.Text({text: "{Pstlz}"}),
-                                 new sap.m.Label({text: "Cidade"}),
-                   							new sap.m.Text({text: "{Ort01}"}),
-                                 new sap.m.Label({text: "UF"}),
-                   							new sap.m.Text({text: "{State}"}),
-                                 new sap.m.Label({text: "País"}),
-                   							new sap.m.Text({text: "{Land1}"})
+                                new sap.m.Label({text:"CEP", width: "100%"}),
+                                new sap.m.MaskInput({
+                                  maxLength: 9,
+                                  id: "Pstlz",
+                                  mask: "99999-999",
+                                  value: "{Pstlz}"
+                                }),
+                                new sap.m.Button("buscaCEP", {
+                                   text: "Buscar CEP",
+                                   tap: [ oController.buscaCEP, oController ],
+
+                                   //type: "Accept",
+                                   icon: "sap-icon://sys-find"
+                                }),
+                                new sap.m.Label({text:"Rua"}),
+                                new sap.m.Input({
+                                  maxLength: 30,
+                                  id: "Stras",
+                                  value: "{Stras}"
+                                }),
+                                new sap.m.Label({text:"Número"}),
+                                new sap.m.Input({
+                                  maxLength: 14,
+                                  id: "Hsnmr",
+                                  value: "{Hsnmr}"
+                                }),
+                                new sap.m.Label({text:"Complemento"}),
+                                new sap.m.Input({
+                                  maxLength: 14,
+                                  id: "Posta",
+                                  value: "{Posta}"
+                                }),
+                                new sap.m.Label({text:"Bairro"}),
+                                new sap.m.Input({
+                                  maxLength: 14,
+                                  id: "Ort02",
+                                  value: "{Ort02}"
+                                }),
+                                new sap.m.Label({text:"Cidade"}),
+                                new sap.m.Input({
+                                  maxLength: 14,
+                                  id: "Ort01",
+                                  value: "{Ort01}"
+                                }),
+                                new sap.m.Label({text:"UF"}),
+                                new sap.m.MaskInput({
+                                  maxLength: 2,
+                                  id: "State",
+                                  mask: "aa",
+                                  width: "100%",
+                                  value: "{State}"
+                                }),
+                                new sap.m.Label({text:"País"}),
+                                new sap.m.Input({
+                                  maxLength: 14,
+                                  id: "Land1",
+                                  value: "{Land1}"
+                                }),
                    						]
                    					});
 
+                            var oFormDocumentos = new sap.ui.layout.form.SimpleForm({
+                   						title: "Documentos",
+                              width: "100%",
+                   						content: [
 
+                                new sap.ui.layout.form.SimpleForm({
+                       						title: "CPF",
+                       						content: [
 
+                                    new sap.m.Label({text:"CPF"}),
+                                    new sap.m.MaskInput({
+                                      maxLength: 14,
+                                      id: "CpfNr",
+                                      mask: "999.999.999-99",
+                                      width: "100%",
+                                      value: "{CpfNr}"
+                                    })
+
+                                  ]
+                       					}),
+
+                                new sap.ui.layout.form.SimpleForm({
+                                  title: "RG",
+                                  width: "100%",
+                                  content: [
+
+                                    new sap.m.Label({text:"Nº RG"}),
+                                    new sap.m.Input({
+                                      maxLength: 14,
+                                      id: "IdentNr",
+                                      width: "100%",
+                                      value: "{IdentNr}"
+                                    }),
+                                    new sap.m.Label({text:"Org.Emissor"}),
+                                    new sap.m.Input({
+                                      maxLength: 14,
+                                      id: "IdentOrg",
+                                      width: "100%",
+                                      value: "{IdentOrg}"
+                                    }),
+                                    new sap.m.Label({text:"Dt. Emissão"}),
+                                    new sap.m.DatePicker({
+                                      maxLength: 20,
+                                      id: "IdentDtEmis",
+                                      valueFormat: "yyyyMMdd",
+                                      displayFormat: "dd.MM.yyyy",
+                                      value: "{IdentDtEmis}"
+                                    }),
+                                    new sap.m.Label({text:"UF"}),
+                                    new sap.m.Input({
+                                      maxLength: 2,
+                                      id: "IdentEsEmis",
+                                      width: "100%",
+                                      value: "{IdentEsEmis}"
+                                    })
+
+                                  ]
+                                }),
+
+                                new sap.ui.layout.form.SimpleForm({
+                                  title: "Título Eleitor",
+                                  width: "100%",
+                                  content: [
+
+                                    new sap.m.Label({text:"Nº Título Eleitor"}),
+                                    new sap.m.Input({
+                                      maxLength: 14,
+                                      id: "ElecNr",
+                                      width: "100%",
+                                      value: "{ElecNr}"
+                                    }),
+                                    new sap.m.Label({text:"Zona Eleitoral"}),
+                                    new sap.m.Input({
+                                      maxLength: 14,
+                                      id: "ElecZone",
+                                      width: "100%",
+                                      value: "{ElecZone}"
+                                    }),
+                                    new sap.m.Label({text:"Seção Eleitoral"}),
+                                    new sap.m.Input({
+                                      maxLength: 14,
+                                      id: "ElecSect",
+                                      width: "100%",
+                                      value: "{ElecSect}"
+                                    }),
+                                    new sap.m.Label({text:"Dt. Emissão"}),
+                                    new sap.m.DatePicker({
+                                      maxLength: 20,
+                                      id: "ElecDtEmis",
+                                      valueFormat: "yyyyMMdd",
+                                      displayFormat: "dd.MM.yyyy",
+                                      value: "{ElecDtEmis}"
+                                    }),
+                                    new sap.m.Label({text:"UF"}),
+                                    new sap.m.Input({
+                                      maxLength: 2,
+                                      id: "ElecEsEmis",
+                                      width: "100%",
+                                      value: "{ElecEsEmis}"
+                                    })
+
+                                  ]
+                                }),
+
+                                new sap.ui.layout.form.SimpleForm({
+                                  title: "CNH",
+                                  width: "100%",
+                                  content: [
+
+                                    new sap.m.Label({text:"Nº CNH"}),
+                                    new sap.m.Input({
+                                      maxLength: 14,
+                                      id: "DriveNr",
+                                      width: "100%",
+                                      value: "{DriveNr}"
+                                    }),
+                                    new sap.m.Label({text:"Categoria"}),
+                                    new sap.m.Input({
+                                      maxLength: 14,
+                                      id: "DriveCat",
+                                      width: "100%",
+                                      value: "{DriveCat}"
+                                    }),
+                                    new sap.m.Label({text:"Dt. Emissão"}),
+                                    new sap.m.DatePicker({
+                                      maxLength: 20,
+                                      id: "DriveDtEmis",
+                                      valueFormat: "yyyyMMdd",
+                                      displayFormat: "dd.MM.yyyy",
+                                      value: "{DriveDtEmis}"
+                                    })
+
+                                  ]
+                                }),
+
+                                new sap.ui.layout.form.SimpleForm({
+                                  title: "Passaporte",
+                                  width: "100%",
+                                  content: [
+
+                                    new sap.m.Label({text:"Nº Passaporte"}),
+                                    new sap.m.Input({
+                                      maxLength: 14,
+                                      id: "PasspNr",
+                                      width: "100%",
+                                      value: "{PasspNr}"
+                                    }),
+                                    new sap.m.Label({text:"Dt. Emissão"}),
+                                    new sap.m.DatePicker({
+                                      maxLength: 20,
+                                      id: "PasspDtEmis",
+                                      valueFormat: "yyyyMMdd",
+                                      displayFormat: "dd.MM.yyyy",
+                                      value: "{PasspDtEmis}"
+                                    }),
+                                    new sap.m.Label({text:"Cond.Trab.Estrangeiro"}),
+                                    new sap.m.Input({
+                                      maxLength: 14,
+                                      id: "ForeignSit",
+                                      width: "100%",
+                                      value: "{ForeignSit}"
+                                    })
+
+                                  ]
+                                }),
+
+                              ]
+                   					});
                  var oDialogDependentes = new sap.m.Dialog("DialogDependentes",{
                              title:"Dependentes",
                              modal: true,
@@ -310,7 +377,17 @@ sap.ui.jsview("empcrud.EmpDetails", {
                                  maxLength: 20,
                                  id: "Type"
                                }),
-                               new sap.m.Label({text:"Nome"}),
+
+                               new sap.m.CheckBox({
+                                text : 'Imposto de Renda?',
+                                tooltip : 'Newsletter checkbox',
+                                checked : true,
+                                width: "100%",
+                                id: "oCB",
+                                select : function() {if(oCB.getChecked()){alert('YES')}else{alert('NO')};}
+                               }),
+
+                               new sap.m.Label({text:"Nome", width: "100%"}),
                                new sap.m.Input({
                                  maxLength: 20,
                                  id: "Fcnam"
@@ -328,7 +405,9 @@ sap.ui.jsview("empcrud.EmpDetails", {
                                  id: "Dtcvc",
                                  valueFormat: "yyyyMMdd",
                                  displayFormat: "dd.MM.yyyy"
-                               }),oBtnUpdDependentes, oBtnCanDependentes
+                               }),
+
+                               oBtnUpdDependentes, oBtnCanDependentes
                              ]
                              });
 
@@ -658,6 +737,12 @@ sap.ui.jsview("empcrud.EmpDetails", {
                          ]
                   });
 
+                  var oBtnSalvar = new sap.m.Button("Approve", {
+                              text: "Salvar",
+                              type: "Accept",
+                              tap: [ oController.UpdateDadosPessoais, oController ]
+                              });
+
                   var oBar = new sap.m.Bar({
                   				design : sap.m.BarDesign.Auto,
                   			});
@@ -666,6 +751,7 @@ sap.ui.jsview("empcrud.EmpDetails", {
                   oBar.addContentMiddle(new sap.m.Text({text: "("}));
                   oBar.addContentMiddle(new sap.m.Text({text: "{Pernr}"}));
                   oBar.addContentMiddle(new sap.m.Text({text: ")"}));
+                  oBar.addContentRight(oBtnSalvar);
                   oPage.setSubHeader(oBar);
 
                   var oFot = new sap.m.Bar({ });
@@ -676,10 +762,14 @@ sap.ui.jsview("empcrud.EmpDetails", {
 
                   //oPage.addContent(oFormHead);
 
+                  oPage.addContent(oFormDadosPessoais);
+                  oPage.addContent(oFormEndereco);
+                  oPage.addContent(oFormDocumentos);
+
                   var  oFilters = null
                   oTableDadosPessoais.bindItems( "/results",templateDadosPessoais, null, oFilters);
                   oTableDadosPessoais.bindElement( "/results" );
-                  oPage.addContent(oTableDadosPessoais);
+                  //oPage.addContent(oTableDadosPessoais);
 
                   oTableDependentes.bindItems( "/results/0/cwitDependentes/results",templateDependentes, null, oFilters);
                   oTableDependentes.bindElement( "/results/0/cwitDependentes/results" );
