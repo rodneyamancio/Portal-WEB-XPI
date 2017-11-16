@@ -69,6 +69,12 @@ sap.ui.controller("empcrud.EmpDetails", {
 
 						},
 
+						Lista: function() {
+
+							app.to("idEmpLista");
+
+						},
+
 						 UpdateDadosPessoais: function() {
 
 	                      var oEntry = {};

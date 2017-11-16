@@ -16,8 +16,10 @@
 				var app = new sap.m.App({initialPage:"idEmpDetails1"});
 				var page 				= sap.ui.view({id:"idEmpDetails1", viewName:"empcrud.EmpDetails", type:sap.ui.core.mvc.ViewType.JS});
 				var detailPage 	= sap.ui.view({id:"idEmpDetails2", viewName:"empcrud.EmpDetails_Detail", type:sap.ui.core.mvc.ViewType.JS});
+				var listaPage 	= sap.ui.view({id:"idEmpLista", viewName:"empcrud.EmpDetails_Lista", type:sap.ui.core.mvc.ViewType.JS});
 				app.addPage(page);
 				app.addPage(detailPage);
+				app.addPage(listaPage);
 				app.placeAt("content");
 		</script>
 

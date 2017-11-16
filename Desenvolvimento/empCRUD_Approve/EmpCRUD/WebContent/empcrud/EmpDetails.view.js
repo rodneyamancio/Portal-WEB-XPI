@@ -81,6 +81,20 @@ sap.ui.jsview("empcrud.EmpDetails", {
           				})
           			});
 
+
+                var oBtnLista = new sap.m.Button("Lista", {
+                            text: "Lista de Acessos",
+                            icon: "sap-icon://notes",
+                            tap: [ oController.Lista, oController ]
+                            });
+
+                var oBar = new sap.m.Bar({
+                        design : sap.m.BarDesign.Auto,
+                      });
+
+                oBar.addContentLeft(oBtnLista);
+                oPage.setSubHeader(oBar);
+
                 var  oFilters = null
                 oTableEmpregados.bindItems( "/results",templateEmpregados, null, oFilters);
                 oTableEmpregados.bindElement( "/results" );
