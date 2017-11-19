@@ -125,8 +125,6 @@ sap.ui.controller("empcrud.EmpDetails", {
 															var sPasspDtEmis 	= oSelectedItem.getBindingContext().getProperty("PasspDrEmis");
 															var sForeignSit 	= oSelectedItem.getBindingContext().getProperty("ForeignSit");
 
-
-
 															sap.ui.getCore().byId("Usrid").setValue(sUsrid);
 															sap.ui.getCore().byId("Pernr").setValue(sPernr);
 			                        sap.ui.getCore().byId("Gbdat").setValue(sGbdat);
@@ -258,15 +256,16 @@ sap.ui.controller("empcrud.EmpDetails", {
 												oEntry.ElecDtEmis 	= sap.ui.getCore().byId("ElecDtEmis").getValue();
 												oEntry.ElecEsEmis 	= sap.ui.getCore().byId("ElecEsEmis").getValue();
 												oEntry.DriveNr 			= sap.ui.getCore().byId("DriveNr").getValue();
-												oEntry.DriveCat 		= sap.ui.getCore().byId("DriveCat").getValue();
+												oEntry.DriveCat 		= sap.ui.getCore().byId("DriveCat").getSelectedKey();
 												oEntry.DriveDtEmis 	= sap.ui.getCore().byId("DriveDtEmis").getValue();
 												oEntry.PasspNr 			= sap.ui.getCore().byId("PasspNr").getValue();
 												oEntry.PasspDtEmis 	= sap.ui.getCore().byId("PasspDtEmis").getValue();
-												oEntry.ForeignSit 	= sap.ui.getCore().byId("ForeignSit").getValue();
-												oEntry.Escol 				= sap.ui.getCore().byId("Escol").getValue();
-												oEntry.Bkont 				= sap.ui.getCore().byId("Bkont").getValue();
+												oEntry.ForeignSit 	= sap.ui.getCore().byId("ForeignSit").getSelectedKey();
+												oEntry.Escol 				= sap.ui.getCore().byId("Escol").getSelectedKey();
+												oEntry.Bkont 				= sap.ui.getCore().byId("Bkont").getSelectedKey();
 												oEntry.Bankl 				= sap.ui.getCore().byId("Bankl").getValue();
 												oEntry.Bankn 				= sap.ui.getCore().byId("Bankn").getValue();
+												oEntry.Bankp 				= sap.ui.getCore().byId("Bankp").getValue();
 
 
 	                      OData.request({
@@ -322,9 +321,9 @@ sap.ui.controller("empcrud.EmpDetails", {
 			                    if ( sap.ui.getCore().byId("oCB").getSelected() == true ){ oEntry.Irflg = "X" };
 													oEntry.Pernr = sap.ui.getCore().byId("PernrDependentes").getValue();
 
-													var dd							= oEntry.Fgbdt.substr(6,2);
-													var mm							= oEntry.Fgbdt.substr(4,2);
-													var yyyy						= oEntry.Fgbdt.substr(0,4);
+													var dd							= oEntry.Fgbdt.substr(0,2);
+													var mm							= oEntry.Fgbdt.substr(3,2);
+													var yyyy						= oEntry.Fgbdt.substr(6,4);
 												  var birthday 				= new Date(yyyy + "-" + mm + "-" + dd );
 												  var ageDifMs 				= Date.now() - birthday.getTime();
 												  var ageDate 				= new Date(ageDifMs); // miliseconds from epoch
@@ -378,9 +377,11 @@ sap.ui.controller("empcrud.EmpDetails", {
 					                               data:oEntry
 					                   },
 					                   function(data,request) {
-					                                           //alert("Dados Salvos com Sucesso");
-																										 sap.m.MessageToast.show("Dados Salvos com Sucesso");
-					                                           location.reload(true);
+					                                          //alert("Dados Salvos com Sucesso");
+																										//sap.m.MessageToast.show("Dependentes Salvos com Sucesso");
+																										sap.ui.getCore().byId("DialogDependentes").close();
+					                                          //location.reload(true);
+													 													//this.UpdateDadosPessoais();
 					                   },          function(err) {
 																					 var errorObj1 = JSON.parse(err.response.body);
 																					 alert(errorObj1.error.message.value);

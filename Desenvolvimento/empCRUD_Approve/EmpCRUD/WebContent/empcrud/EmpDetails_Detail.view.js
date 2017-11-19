@@ -51,8 +51,20 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
       						]
       					});
 
+                var oFormDadosBancarios = new sap.ui.layout.form.SimpleForm({
+      						title: "Dados Bancários",
+      						content: [
+                    new sap.m.Label({text:"Banco"}),
+                    new sap.m.Text({text: "{Bkont}"}),
+                    new sap.m.Label({text:"Agência"}),
+                    new sap.m.Text({text: "{Bankl}"}),
+                    new sap.m.Label({text:"Conta"}),
+                    new sap.m.Text({text: "{Bankn}"})
+      						]
+      					});
+
                 var oFormEndereco = new sap.ui.layout.form.SimpleForm({
-                  title: "Dados Pessoais",
+                  title: "Endereço",
                   content: [
                     new sap.m.Label({text: "Rua"}),
                     new sap.m.Text({text: "{Stras}"}),
@@ -232,6 +244,7 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
 
                   //oPage.addContent(oBtnApprove);
                   oPage.addContent(oFormDadosPessoais);
+                  oPage.addContent(oFormDadosBancarios);
                   oPage.addContent(oFormEndereco);
                   oPage.addContent(oFormDocumentos);
                   oPage.addContent(oTableDependentes);
