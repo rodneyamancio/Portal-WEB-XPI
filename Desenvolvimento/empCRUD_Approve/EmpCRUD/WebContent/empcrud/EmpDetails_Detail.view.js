@@ -54,12 +54,14 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                 var oFormDadosBancarios = new sap.ui.layout.form.SimpleForm({
       						title: "Dados Bancários",
       						content: [
-                    new sap.m.Label({text:"Banco"}),
-                    new sap.m.Text({text: "{Bkont}"}),
-                    new sap.m.Label({text:"Agência"}),
-                    new sap.m.Text({text: "{Bankl}"}),
-                    new sap.m.Label({text:"Conta"}),
-                    new sap.m.Text({text: "{Bankn}"})
+                    new sap.m.Label({text:  "Banco"}),
+                    new sap.m.Text({text:   "{Bkont}"}),
+                    new sap.m.Label({text:  "Agência"}),
+                    new sap.m.Text({text:   "{Bankl}"}),
+                    new sap.m.Label({text:  "Conta"}),
+                    new sap.m.Text({text:   "{Bankn}"}),
+                    new sap.m.Label({text:  "Dígito"}),
+                    new sap.m.Text({text:   "{Bankp}"})
       						]
       					});
 
@@ -166,7 +168,7 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                                   header: new sap.m.Label({
                                   text: "Tipo"  }) }),
                                 new sap.m.Column({
-                                  width: "1em",
+                                  width: "8em",
                                   header: new sap.m.Label({
                                   text: "Nome Completo"  }) }),
                                 new sap.m.Column({

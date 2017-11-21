@@ -75,13 +75,6 @@ sap.ui.controller("empcrud.EmpDetails", {
 
 	          },
 
-	/**
-	* Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-	* @memberOf empcrud.EmpDetails
-	*/
-//	          onExit: function() {
-	//
-//	          }
 	            ItemPress: function(evt) {
 
 													var oOption = evt.getParameter("id");
