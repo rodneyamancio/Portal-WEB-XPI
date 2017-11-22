@@ -38,16 +38,18 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                 var oFormDadosPessoais = new sap.ui.layout.form.SimpleForm({
       						title: "Dados Pessoais",
       						content: [
-      							new sap.m.Label({text: "Nome"}),
-      							new sap.m.Text({text: "{Cname}"}),
-      							new sap.m.Label({text: "Matrícula"}),
-      							new sap.m.Text({text: "{Pernr}", id:"txtPernr"}),
-      							new sap.m.Label({text: "Dt. Nascimento"}),
-      							new sap.m.Text({text: "{Gbdat}"}),
-      							new sap.m.Label({text: "Telefone"}),
-      							new sap.m.Text({text: "{Num01}"}),
-      							new sap.m.Label({text: "Escolaridade"}),
-      							new sap.m.Text({text: "{Escol}"}),
+
+            							new sap.m.Label({text: "Nome"}),
+                          new sap.m.ObjectStatus({text: "{Cname}", state: '{OldCname}'}),
+                          new sap.m.Label({text: "Matrícula"}),
+            							new sap.m.ObjectStatus({id: "txtPernr", text: "{Pernr}", state: '{OldPernr}'}),
+            							new sap.m.Label({text: "Dt. Nascimento"}),
+            							new sap.m.ObjectStatus({text: "{Gbdat}",  state: '{OldGbdat}'}),
+                          new sap.m.Label({text: "Telefone"}),
+                          new sap.m.ObjectStatus({text: "{Num01}",  state: '{OldNum01}'}),
+                          new sap.m.Label({text: "Grau de Escolaridade"}),
+            							new sap.m.ObjectStatus({text: "{Escol}",  state: '{OldEscol}'}),
+
       						]
       					});
 
@@ -55,13 +57,13 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
       						title: "Dados Bancários",
       						content: [
                     new sap.m.Label({text:  "Banco"}),
-                    new sap.m.Text({text:   "{Bkont}"}),
+                    new sap.m.ObjectStatus({text:   "{Bkont}", state: '{OldBkont}'}),
                     new sap.m.Label({text:  "Agência"}),
-                    new sap.m.Text({text:   "{Bankl}"}),
+                    new sap.m.ObjectStatus({text:   "{Bankl}", state: '{OldBankl}'}),
                     new sap.m.Label({text:  "Conta"}),
-                    new sap.m.Text({text:   "{Bankn}"}),
+                    new sap.m.ObjectStatus({text:   "{Bankn}", state: '{OldBankn}'}),
                     new sap.m.Label({text:  "Dígito"}),
-                    new sap.m.Text({text:   "{Bankp}"})
+                    new sap.m.ObjectStatus({text:   "{Bankp}", state: '{OldBankp}'}),
       						]
       					});
 
@@ -69,21 +71,21 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                   title: "Endereço",
                   content: [
                     new sap.m.Label({text: "Rua"}),
-                    new sap.m.Text({text: "{Stras}"}),
+                    new sap.m.ObjectStatus({text: "{Stras}", state: '{OldStras}'}),
                     new sap.m.Label({text: "Número"}),
-                    new sap.m.Text({text: "{Hsnmr}"}),
+                    new sap.m.ObjectStatus({text: "{Hsnmr}", state: '{OldHsnmr}'}),
                     new sap.m.Label({text: "Complemento"}),
-                    new sap.m.Text({text: "{Posta}"}),
+                    new sap.m.ObjectStatus({text: "{Posta}", state: '{OldPosta}'}),
                     new sap.m.Label({text: "Bairro"}),
-                    new sap.m.Text({text: "{Ort02}"}),
+                    new sap.m.ObjectStatus({text: "{Ort02}", state: '{OldOrt02}'}),
                     new sap.m.Label({text: "CEP"}),
-                    new sap.m.Text({text: "{Pstlz}"}),
+                    new sap.m.ObjectStatus({text: "{Pstlz}", state: '{OldPstlz}'}),
                     new sap.m.Label({text: "Cidade"}),
-                    new sap.m.Text({text: "{Ort01}"}),
+                    new sap.m.ObjectStatus({text: "{Ort01}", state: '{OldOrt01}'}),
                     new sap.m.Label({text: "UF"}),
-                    new sap.m.Text({text: "{State}"}),
+                    new sap.m.ObjectStatus({text: "{State}", state: '{OldState}'}),
                     new sap.m.Label({text: "País"}),
-                    new sap.m.Text({text: "{Land1}"})
+                    new sap.m.ObjectStatus({text: "{Land1}", state: '{OldLand1}'}),
                   ]
                 });
 
@@ -95,7 +97,7 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                       title: "CPF",
                       content: [
                         new sap.m.Label({text: "CPF"}),
-                        new sap.m.Text({text: "{CpfNr}"})
+                        new sap.m.ObjectStatus({text: "{CpfNr}", state: '{OldCpfNr}'}),
                       ]
                     }),
 
@@ -103,13 +105,13 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                       title: "RG",
                       content: [
                         new sap.m.Label({text:"Nº RG"}),
-                        new sap.m.Text({text: "{IdentNr}"}),
+                        new sap.m.ObjectStatus({text: "{IdentNr}", state: '{OldIdentNr}'}),
                         new sap.m.Label({text:"Org.Emissor"}),
-                        new sap.m.Text({text: "{IdentOrg}"}),
+                        new sap.m.ObjectStatus({text: "{IdentOrg}", state: '{OldIdentOrg}'}),
                         new sap.m.Label({text:"Dt. Emissão"}),
-                        new sap.m.Text({text: "{IdentDtEmis}"}),
+                        new sap.m.ObjectStatus({text: "{IdentDtEmis}", state: '{OldIdentDtEmis}'}),
                         new sap.m.Label({text:"UF"}),
-                        new sap.m.Text({text: "{IdentEsEmis}" })
+                        new sap.m.ObjectStatus({text: "{IdentEsEmis}" , state: '{OldIdentEsEmis}'}),
                       ]
                     }),
 
@@ -117,15 +119,15 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                       title: "Título de Eleitor",
                       content: [
                         new sap.m.Label({text:"Nº Título Eleitor"}),
-                        new sap.m.Text({text: "{ElecNr}"}),
+                        new sap.m.ObjectStatus({text: "{ElecNr}", state: '{OldElecNr}'}),
                         new sap.m.Label({text:"Zona Eleitoral"}),
-                        new sap.m.Text({text: "{ElecZone}"}),
+                        new sap.m.ObjectStatus({text: "{ElecZone}", state: '{OldElecZone}'}),
                         new sap.m.Label({text:"Seção Eleitoral"}),
-                        new sap.m.Text({tex: "{ElecSect}"}),
+                        new sap.m.ObjectStatus({tex: "{ElecSect}", state: '{OldElecSect}'}),
                         new sap.m.Label({text:"Dt. Emissão"}),
-                        new sap.m.Text({text: "{ElecDtEmis}"}),
+                        new sap.m.ObjectStatus({text: "{ElecDtEmis}", state: '{OldElecDtEmis}'}),
                         new sap.m.Label({text:"UF"}),
-                        new sap.m.Text({text: "{ElecEsEmis}"})
+                        new sap.m.ObjectStatus({text: "{ElecEsEmis}", state: '{OldElecEsEmis}'}),
                       ]
                     }),
 
@@ -133,11 +135,11 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                       title: "CNH",
                       content: [
                         new sap.m.Label({text:"Nº CNH"}),
-                        new sap.m.Text({text: "{DriveNr}"}),
+                        new sap.m.ObjectStatus({text: "{DriveNr}", state: '{OldDriveNr}'}),
                         new sap.m.Label({text:"Categoria"}),
-                        new sap.m.Text({text: "{DriveCat}"}),
+                        new sap.m.ObjectStatus({text: "{DriveCat}", state: '{OldDriveCat}'}),
                         new sap.m.Label({text:"Dt. Emissão"}),
-                        new sap.m.Text({text: "{DriveDtEmis}"})
+                        new sap.m.ObjectStatus({text: "{DriveDtEmis}", state: '{OldDriveDtEmis}'}),
                       ]
                     }),
 
@@ -145,11 +147,11 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                       title: "Passaporte",
                       content: [
                         new sap.m.Label({text:"Nº Passaporte"}),
-                        new sap.m.Text({text: "{PasspNr}"}),
+                        new sap.m.ObjectStatus({text: "{PasspNr}", state: '{OldPasspNr}'}),
                         new sap.m.Label({text:"Dt. Emissão"}),
-                        new sap.m.Text({text: "{PasspDtEmis}"}),
+                        new sap.m.ObjectStatus({text: "{PasspDtEmis}", state: '{OldPasspDtEmis}'}),
                         new sap.m.Label({text:"Cond.Trab.Estrangeiro"}),
-                        new sap.m.Text({text: "{ForeignSit}"})
+                        new sap.m.ObjectStatus({text: "{ForeignSit}", state: '{OldForeignSit}'}),
                       ]
                     }),
 
@@ -197,23 +199,23 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                          type: "Navigation",
                          visible: true,
                          cells: [
-                           new sap.m.Label({
-                            text: "{Type}"
+                           new sap.m.ObjectStatus({
+                            text: "{Type}", state: '{OldType}'
                            }),
-                           new sap.m.Label({
-                            text: "{Fcnam}"
+                           new sap.m.ObjectStatus({
+                            text: "{Fcnam}", state: '{OldFcnam}'
                            }),
-                           new sap.m.Label({
-                            text: "{Irflg}"
+                           new sap.m.ObjectStatus({
+                            text: "{Irflg}", state: '{OldIrflg}'
                            }),
-                           new sap.m.Label({
-                            text: "{Fgbdt}"
+                           new sap.m.ObjectStatus({
+                            text: "{Fgbdt}", state: '{OldFgbdt}'
                            }),
-                           new sap.m.Label({
-                            text: "{Icnum}"
+                           new sap.m.ObjectStatus({
+                            text: "{Icnum}", state: '{OldIcnum}'
                            }),
-                           new sap.m.Label({
-                            text: "{Dtcvc}"
+                           new sap.m.ObjectStatus({
+                            text: "{Dtcvc}", state: '{OldDtcvc}'
                            }),
                          ]
                   });

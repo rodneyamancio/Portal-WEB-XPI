@@ -14,9 +14,6 @@ sap.ui.controller("empcrud.EmpDetails_Lista", {
 
 		sap.ui.getCore().setModel(oJsonModel, "AcessosSet");
 
-
-
-
 	},
 
 })
