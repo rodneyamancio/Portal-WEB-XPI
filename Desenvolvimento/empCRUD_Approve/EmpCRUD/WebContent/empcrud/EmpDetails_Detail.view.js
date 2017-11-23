@@ -200,8 +200,7 @@ sap.ui.jsview("empcrud.EmpDetails_Detail", {
                          visible: true,
                          cells: [
                            new sap.m.ObjectStatus({
-                            text: "{Type}", state: '{OldType}'
-                           }),
+                            text: "{Type}"}),
                            new sap.m.ObjectStatus({
                             text: "{Fcnam}", state: '{OldFcnam}'
                            }),
