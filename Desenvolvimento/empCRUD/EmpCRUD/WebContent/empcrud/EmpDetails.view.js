@@ -377,7 +377,7 @@ var oDialogDadosPessoais = new sap.m.Dialog("DialogDadosPessoais",{
                                 }),
                                 new sap.m.Label({text:"Bairro"}),
                                 new sap.m.Input({
-                                  maxLength: 14,
+                                  maxLength: 24,
                                   id: "Ort02",
                                   value: "{Ort02}"
                                 }),
